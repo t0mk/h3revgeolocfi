@@ -20,7 +20,7 @@ const dbpath = "db.db"
 func loaddb() (*sql.DB, error) {
 	var err error
 	var fn string
-	if os.Getenv("FUNCTION_REGION") != "" {
+	if os.Getenv("GVM_ROOT") == "" {
 		fn = path.Join("serverless_function_source_code", dbpath)
 	} else {
 		fn = path.Join("../", dbpath)
